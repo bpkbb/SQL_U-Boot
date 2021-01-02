@@ -18,6 +18,7 @@ public class ProgramController {
 
     // Referenzen
     private ViewController viewController;  // diese Referenz soll auf ein Objekt der Klasse viewController zeigen. Über dieses Objekt wird das Fenster gesteuert.
+    private Verwaltungsstart verwaltungsstart;
 
     /**
      * Konstruktor
@@ -34,12 +35,9 @@ public class ProgramController {
      * Diese Methode wird genau ein mal nach Programmstart aufgerufen. Achtung: funktioniert nicht im Szenario-Modus
      */
     public void startProgram() {
-        //Hier wird eine lokale Referenz für ein House-Objekt angelegt.
-        House firstHouse = new House();
-
-        //Damit die draw-Methode des Objekts hinter firstHouse aufgerufen wird,
-        //muss dem ViewController-Objekt mitgeteilt werden, dass es das House-Objekt zeichnen soll.
-        viewController.draw(firstHouse);
+        verwaltungsstart = new Verwaltungsstart(viewController);
+        viewController.getSoundController().loadSound("Daten/Sound/SEE_SEA.mp3","music01",true);
+        viewController.getSoundController().loadSound("Daten/Sound/So_What.mp3","music02",true);
     }
 
     /**

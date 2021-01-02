@@ -79,7 +79,7 @@ public class Button extends InteractiveGraphicalObject {
             drawTool.drawImage(myImage, x, y);
         }else {
             drawTool.setCurrentColor(100,100,100, 255);
-            drawTool.formatText("Courier New", 0, (int) hoehe - 2);
+            drawTool.formatText("Courier New", 0, (int) hoehe - 17);
             drawTool.drawFilledRectangle(x, y, breite, hoehe);
             drawTool.setCurrentColor(farbe[0], farbe[1], farbe[2], 255);
             drawTool.drawText(x + 7.5, y + (hoehe - 2) - 8, text);
