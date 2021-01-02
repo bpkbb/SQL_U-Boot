@@ -10,31 +10,27 @@ public class Aktionsfenster extends GraphicalObject implements ButtonUser {
 
     private ViewControll viewC;
     private Hintergrundbild hintergrund;
-    private Button hafen, uBoote, person, mission, feinde, typ;
+    private Button suchen, veraendern, erstellen;
 
     public Aktionsfenster(ViewController vC, ViewControll viewC){
         this.viewC = viewC;
         setNewImage("daten/Image/map.jpg");
         hintergrund = new Hintergrundbild(getMyImage());
-        hafen = new Button("Hafen",851,0,50,149,255,255,255,0,this);
-        uBoote = new Button("U-Boot",851,60,50,149,255,255,255,1,this);
-        person = new Button("Person",851,120,50,149,255,255,255,2,this);
-        mission = new Button("Mission",851,180,50,149,255,255,255,3,this);
-        feinde = new Button("Feind",851,240,50,149,255,255,255,4,this);
-        typ =  new Button("Typ",851,300,50,149,255,255,255,5,this);
-        registriereButtons(vC);
+        suchen = new Button("Suchen",851,0,50,149,255,255,255,0,this);
+        veraendern = new Button("Verändern",851,60,50,149,255,255,255,1,this);
+        erstellen = new Button("Erstellen",851,120,50,149,255,255,255,2,this);
     }
 
     @Override
     public void buttoneffect(int buttonNummer) {
+        String[] options = new String[6];
+        options[0] = "Hafen";
+        options[1] = "U-Boot";
+        options[2] = "Person";
+        options[3] = "Mission";
+        options[4] = "Feind";
+        options[5] = "Typen";
         if (buttonNummer == 0){
-            String[] options = new String[6];
-            options[0] = "Hafen";
-            options[1] = "U-Boot";
-            options[2] = "Person";
-            options[3] = "Mission";
-            options[4] = "Feind";
-            options[5] = "Typen";
             int eingabe = JOptionPane.showOptionDialog(
                     null, //Component
                     "Möchtest du noch eine Runde spielen?",
@@ -45,9 +41,81 @@ public class Aktionsfenster extends GraphicalObject implements ButtonUser {
                     options,
                     options[0]);
             if(eingabe == 0){
-                System.out.println("TADA");
+                System.out.println(eingabe);
+                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
+            }else if (eingabe == 1){
+                System.out.println(eingabe);
+                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
+            }else if (eingabe == 2){
+                System.out.println(eingabe);
+                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
+            }else if (eingabe == 3){
+                System.out.println(eingabe);
+                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
+            }else if (eingabe == 4){
+                System.out.println(eingabe);
+                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
             }else{
-
+                System.out.println(eingabe);
+                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
+            }
+        }else if (buttonNummer == 1){
+            int eingabe = JOptionPane.showOptionDialog(
+                    null, //Component
+                    "Möchtest du noch eine Runde spielen?",
+                    "Weiter/Raus",
+                    JOptionPane.DEFAULT_OPTION,
+                    JOptionPane.PLAIN_MESSAGE,
+                    null, //Icon
+                    options,
+                    options[0]);
+            if(eingabe == 0){
+                System.out.println(eingabe);
+                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
+            }else if (eingabe == 1){
+                System.out.println(eingabe);
+                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
+            }else if (eingabe == 2){
+                System.out.println(eingabe);
+                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
+            }else if (eingabe == 3){
+                System.out.println(eingabe);
+                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
+            }else if (eingabe == 4){
+                System.out.println(eingabe);
+                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
+            }else{
+                System.out.println(eingabe);
+                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
+            }
+        }else if (buttonNummer == 3){
+            int eingabe = JOptionPane.showOptionDialog(
+                    null, //Component
+                    "Möchtest du noch eine Runde spielen?",
+                    "Weiter/Raus",
+                    JOptionPane.DEFAULT_OPTION,
+                    JOptionPane.PLAIN_MESSAGE,
+                    null, //Icon
+                    options,
+                    options[0]);
+            if(eingabe == 0){
+                System.out.println(eingabe);
+                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
+            }else if (eingabe == 1){
+                System.out.println(eingabe);
+                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
+            }else if (eingabe == 2){
+                System.out.println(eingabe);
+                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
+            }else if (eingabe == 3){
+                System.out.println(eingabe);
+                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
+            }else if (eingabe == 4){
+                System.out.println(eingabe);
+                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
+            }else{
+                System.out.println(eingabe);
+                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
             }
         }
     }
@@ -55,17 +123,11 @@ public class Aktionsfenster extends GraphicalObject implements ButtonUser {
     @Override
     public void registriereButtons(ViewController vC) {
         System.out.println("MOIN");
-        vC.draw(hafen,1);
-        vC.draw(uBoote,1);
-        vC.draw(person,1);
-        vC.draw(mission,1);
-        vC.draw(feinde,1);
-        vC.draw(typ,1);
-        vC.register(hafen,1);
-        vC.register(uBoote,1);
-        vC.register(person,1);
-        vC.register(mission,1);
-        vC.register(feinde,1);
-        vC.register(typ,1);
+        vC.draw(suchen,1);
+        vC.draw(veraendern,1);
+        vC.draw(erstellen,1);
+        vC.register(suchen,1);
+        vC.register(veraendern,1);
+        vC.register(erstellen,1);
     }
 }
