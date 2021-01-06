@@ -2,6 +2,7 @@ package my_project.view;
 
 import KAGO_framework.control.ViewController;
 import KAGO_framework.model.GraphicalObject;
+import my_project.control.CentralControll;
 import my_project.control.ViewControll;
 
 import javax.swing.*;
@@ -10,15 +11,19 @@ public class Aktionsfenster extends GraphicalObject implements ButtonUser {
 
     private ViewControll viewC;
     private Hintergrundbild hintergrund;
-    private Button suchen, veraendern, erstellen;
+    private Button suchen, veraendern, erstellen, einsAusgeben, loeschen;
+    private CentralControll centralControll;
 
-    public Aktionsfenster(ViewController vC, ViewControll viewC){
+    public Aktionsfenster(ViewControll viewC, CentralControll centralControll){
         this.viewC = viewC;
+        this.centralControll = centralControll;
         setNewImage("daten/Image/map.jpg");
         hintergrund = new Hintergrundbild(getMyImage());
-        suchen = new Button("Suchen",851,0,50,149,255,255,255,0,this);
-        veraendern = new Button("Verändern",851,60,50,149,255,255,255,1,this);
-        erstellen = new Button("Erstellen",851,120,50,149,255,255,255,2,this);
+        suchen = new Button("Suchen",851,0,40,255,255,255,0,this);
+        veraendern = new Button("Verändern",851,60,40,255,255,255,1,this);
+        erstellen = new Button("Erstellen",851,120,40,255,255,255,2,this);
+        einsAusgeben = new Button("Eine Tabelle",851,180,40,255,255,255,3,this);
+        loeschen = new Button("Löschen",851,240,40,255,255,255,4,this);
     }
 
     @Override
@@ -33,101 +38,80 @@ public class Aktionsfenster extends GraphicalObject implements ButtonUser {
         if (buttonNummer == 0){
             int eingabe = JOptionPane.showOptionDialog(
                     null, //Component
-                    "Möchtest du noch eine Runde spielen?",
-                    "Weiter/Raus",
+                    "Wähle eine Tabelle aus",
+                    "Tabellenauswahl",
                     JOptionPane.DEFAULT_OPTION,
                     JOptionPane.PLAIN_MESSAGE,
                     null, //Icon
                     options,
                     options[0]);
-            if(eingabe == 0){
-                System.out.println(eingabe);
-                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
-            }else if (eingabe == 1){
-                System.out.println(eingabe);
-                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
-            }else if (eingabe == 2){
-                System.out.println(eingabe);
-                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
-            }else if (eingabe == 3){
-                System.out.println(eingabe);
-                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
-            }else if (eingabe == 4){
-                System.out.println(eingabe);
-                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
-            }else{
-                System.out.println(eingabe);
-                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
-            }
+
+            System.out.println(eingabe);
+            viewC.oeffneDieViewDazu(buttonNummer,eingabe);
         }else if (buttonNummer == 1){
             int eingabe = JOptionPane.showOptionDialog(
                     null, //Component
-                    "Möchtest du noch eine Runde spielen?",
-                    "Weiter/Raus",
+                    "Wähle eine Tabelle aus",
+                    "Tabellenauswahl",
                     JOptionPane.DEFAULT_OPTION,
                     JOptionPane.PLAIN_MESSAGE,
                     null, //Icon
                     options,
                     options[0]);
-            if(eingabe == 0){
-                System.out.println(eingabe);
-                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
-            }else if (eingabe == 1){
-                System.out.println(eingabe);
-                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
-            }else if (eingabe == 2){
-                System.out.println(eingabe);
-                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
-            }else if (eingabe == 3){
-                System.out.println(eingabe);
-                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
-            }else if (eingabe == 4){
-                System.out.println(eingabe);
-                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
-            }else{
-                System.out.println(eingabe);
-                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
-            }
-        }else if (buttonNummer == 3){
+
+            System.out.println(eingabe);
+            viewC.oeffneDieViewDazu(buttonNummer,eingabe);
+        }else if (buttonNummer == 2){
             int eingabe = JOptionPane.showOptionDialog(
                     null, //Component
-                    "Möchtest du noch eine Runde spielen?",
-                    "Weiter/Raus",
+                    "Wähle eine Tabelle aus",
+                    "Tabellenauswahl",
                     JOptionPane.DEFAULT_OPTION,
                     JOptionPane.PLAIN_MESSAGE,
                     null, //Icon
                     options,
                     options[0]);
-            if(eingabe == 0){
-                System.out.println(eingabe);
-                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
-            }else if (eingabe == 1){
-                System.out.println(eingabe);
-                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
-            }else if (eingabe == 2){
-                System.out.println(eingabe);
-                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
-            }else if (eingabe == 3){
-                System.out.println(eingabe);
-                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
-            }else if (eingabe == 4){
-                System.out.println(eingabe);
-                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
-            }else{
-                System.out.println(eingabe);
-                viewC.oeffneDieViewDazu(buttonNummer,eingabe);
-            }
+            System.out.println(eingabe);
+            viewC.oeffneDieViewDazu(buttonNummer,eingabe);
+        }else if (buttonNummer == 3){
+            int eingabe = JOptionPane.showOptionDialog(
+                null, //Component
+                "Welche Tabelle willst du ausgeben?",
+                "Tabellenauswahl",
+                JOptionPane.DEFAULT_OPTION,
+                JOptionPane.PLAIN_MESSAGE,
+                null, //Icon
+                options,
+                options[0]);
+            centralControll.eineTabelleAusgeben(eingabe);
+        }else if (buttonNummer == 4){
+            int eingabe = JOptionPane.showOptionDialog(
+                null, //Component
+                "Welche Tabelle willst du ausgeben?",
+                "Tabellenauswahl",
+                JOptionPane.DEFAULT_OPTION,
+                JOptionPane.PLAIN_MESSAGE,
+                null, //Icon
+                options,
+                options[0]);
+            String id = JOptionPane.showInputDialog(null,"Gib den Primärschlüssel des Objektes an",
+                    "primärschlüsselangabe",
+                    JOptionPane.PLAIN_MESSAGE);
+            centralControll.loescheObjekt(eingabe,id);
         }
     }
 
     @Override
     public void registriereButtons(ViewController vC) {
-        System.out.println("MOIN");
         vC.draw(suchen,1);
         vC.draw(veraendern,1);
         vC.draw(erstellen,1);
+        vC.draw(einsAusgeben,1);
+        vC.draw(loeschen,1);
         vC.register(suchen,1);
         vC.register(veraendern,1);
         vC.register(erstellen,1);
+        vC.register(einsAusgeben,1);
+        vC.register(loeschen,1);
     }
 }

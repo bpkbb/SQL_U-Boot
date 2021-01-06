@@ -14,7 +14,7 @@ public class Hintergrundbild extends GraphicalObject {
     }
 
     public void draw (DrawTool drawTool){
-        drawTool.drawImage(myImage,0, 29);
+        drawTool.drawImage(myImage,0, 0);
 
     }
 }

@@ -1,10 +1,7 @@
 package my_project.control;
 
-import KAGO_framework.control.DatabaseController;
 import KAGO_framework.control.ViewController;
-import my_project.model.House;
 
-import javax.swing.*;
 import java.awt.event.MouseEvent;
 
 /**
@@ -18,7 +15,7 @@ public class ProgramController {
 
     // Referenzen
     private ViewController viewController;  // diese Referenz soll auf ein Objekt der Klasse viewController zeigen. Über dieses Objekt wird das Fenster gesteuert.
-    private Verwaltungsstart verwaltungsstart;
+    private CentralControll centralControll;
 
     /**
      * Konstruktor
@@ -35,9 +32,12 @@ public class ProgramController {
      * Diese Methode wird genau ein mal nach Programmstart aufgerufen. Achtung: funktioniert nicht im Szenario-Modus
      */
     public void startProgram() {
-        verwaltungsstart = new Verwaltungsstart(viewController);
+        centralControll = new CentralControll(viewController);
         viewController.getSoundController().loadSound("Daten/Sound/SEE_SEA.mp3","music01",true);
         viewController.getSoundController().loadSound("Daten/Sound/So_What.mp3","music02",true);
+        viewController.getSoundController().loadSound("Daten/Sound/BabyShark.mp3","begin",false);
+        viewController.getSoundController().playSound("begin");
+        viewController.getSoundController().setVolume("begin",1);
     }
 
     /**

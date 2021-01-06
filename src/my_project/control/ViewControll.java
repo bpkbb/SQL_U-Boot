@@ -6,6 +6,7 @@ import my_project.view.*;
 public class ViewControll {
 
     private ViewController vC;
+    private CentralControll centralControll;
     private Startfenster startfenster;
     private Aktionsfenster aktionsfenster;
     private Suchen suchenFenster;
@@ -13,13 +14,14 @@ public class ViewControll {
     private Veraendern veraendernFenster;
 
 
-    public ViewControll(ViewController vC){
+    public ViewControll(ViewController vC, CentralControll centralControll){
         this.vC = vC;
+        this.centralControll = centralControll;
         startfenster = new Startfenster(vC, this);
-        aktionsfenster = new Aktionsfenster(vC, this);
-        suchenFenster = new Suchen();
-        erstellenFenster = new Erstellen();
-        veraendernFenster = new Veraendern();
+        aktionsfenster = new Aktionsfenster(this, centralControll);
+        suchenFenster = new Suchen(centralControll);
+        erstellenFenster = new Erstellen(centralControll);
+        veraendernFenster = new Veraendern(centralControll);
         vC.createScene();
         vC.createScene();
         drawUndRegister();
@@ -36,13 +38,16 @@ public class ViewControll {
             vC.getSoundController().playSound("music01");
             vC.getSoundController().setVolume("music01", 1);
             vC.getSoundController().stopSound("music02");
+            vC.getSoundController().stopSound("begin");
         }else if (welche == 2){
             vC.getSoundController().playSound("music02");
             vC.getSoundController().setVolume("music02", 1);
             vC.getSoundController().stopSound("music01");
+            vC.getSoundController().stopSound("begin");
         }else if (welche == 0){
             vC.getSoundController().stopSound("music01");
             vC.getSoundController().stopSound("music02");
+            vC.getSoundController().stopSound("begin");
         }
     }
 
@@ -59,47 +64,11 @@ public class ViewControll {
      */
     public void oeffneDieViewDazu(int buttonNr, int tabelle){
         if (buttonNr == 0){
-            if (tabelle == 0){
-                suchenFenster.openSuchen(tabelle);
-            }else if (tabelle == 1){
-                suchenFenster.openSuchen(tabelle);
-            }else if (tabelle == 2){
-                suchenFenster.openSuchen(tabelle);
-            }else if (tabelle == 3){
-                suchenFenster.openSuchen(tabelle);
-            }else if (tabelle == 4){
-                suchenFenster.openSuchen(tabelle);
-            }else if (tabelle == 5){
-                suchenFenster.openSuchen(tabelle);
-            }
+            suchenFenster.openSuchen(tabelle);
         }else if (buttonNr == 1){
-            if (tabelle == 0){
-                veraendernFenster.openVeraendern(tabelle);
-            }else if (tabelle == 1){
-                veraendernFenster.openVeraendern(tabelle);
-            }else if (tabelle == 2){
-                veraendernFenster.openVeraendern(tabelle);
-            }else if (tabelle == 3){
-                veraendernFenster.openVeraendern(tabelle);
-            }else if (tabelle == 4){
-                veraendernFenster.openVeraendern(tabelle);
-            }else if (tabelle == 5){
-                veraendernFenster.openVeraendern(tabelle);
-            }
-        }else{
-            if (tabelle == 0){
-                erstellenFenster.openErstellen(tabelle);
-            }else if (tabelle == 1){
-                erstellenFenster.openErstellen(tabelle);
-            }else if (tabelle == 2){
-                erstellenFenster.openErstellen(tabelle);
-            }else if (tabelle == 3){
-                erstellenFenster.openErstellen(tabelle);
-            }else if (tabelle == 4){
-                erstellenFenster.openErstellen(tabelle);
-            }else if (tabelle == 5){
-                erstellenFenster.openErstellen(tabelle);
-            }
+            veraendernFenster.openVeraendern(tabelle);
+        }else if (buttonNr == 2){
+            erstellenFenster.openErstellen(tabelle);
         }
     }
 }
