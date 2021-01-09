@@ -39,7 +39,7 @@ public class Suchen {
             public void actionPerformed(ActionEvent e) {
                 neinButton.setBackground(Color.RED);
                 jaButton.setBackground(Color.WHITE);
-                boo = "false";
+                boo = "0";
             }
         });
         suchenButton.addActionListener(new ActionListener() {

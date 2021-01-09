@@ -44,6 +44,10 @@ public class CentralControll {
                     ";");
             System.out.println(sqlControll.processSQL("SELECT * FROM LN_UB_Hafen WHERE ID = "+s01+";"));
         }else if (tabelle == 1){
+            System.out.println("INSERT INTO LN_UB_UBoote " +
+                    "VALUES " +
+                    "(" +s01+ "," +s02+ ",'" +s03+ "'," +s04+ "," +s05+ "," +s06+ "," +s07+ ") " +
+                    ";");
             sqlControll.processSQL("INSERT INTO LN_UB_UBoote " +
                     "VALUES " +
                     "(" +s01+ "," +s02+ ",'" +s03+ "'," +s04+ "," +s05+ "," +s06+ "," +s07+ ") " +
@@ -110,7 +114,6 @@ public class CentralControll {
             }
         }else if (tabelle == 1){
             if (anzahl == 1){
-
                 sqlControll.processSQLMitRueckgabe("SELECT * " +
                         "FROM ((LN_UB_UBoote " +
                         "JOIN LN_UB_Hafen ON LN_UB_UBoote.Hafen = LN_UB_Hafen.ID) " +
@@ -236,7 +239,7 @@ public class CentralControll {
     
     public void veraendereObjekt(int tabelle, String attribut, String wozu, String id){
         if (tabelle == 0){
-            System.out.println(sqlControll.processSQL("UPDATE LN_UB_Hafen SET " +attribut+ " = " +wozu+ " WHERE ID = '" +id+ "';"));
+            sqlControll.processSQL("UPDATE LN_UB_Hafen SET " +attribut+ " = " +wozu+ " WHERE ID = '" +id+ "';");
         }else if (tabelle == 1){
             sqlControll.processSQL("UPDATE LN_UB_UBoote SET " +attribut+ " = " +wozu+ " WHERE Kennnummer = '" +id+ "';");
         }else if (tabelle == 2){
@@ -264,6 +267,10 @@ public class CentralControll {
         }else if (tabelle == 5){
             sqlControll.processSQL("DELETE FROM LN_UB_Typen WHERE Typ = '" +id+ "';");
         }
+    }
+
+    public void reconnect(){
+        sqlControll.reconnect();
     }
 
 }

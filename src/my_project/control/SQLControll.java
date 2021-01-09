@@ -272,6 +272,16 @@ public class SQLControll {
                 ";"));
     }
 
-
+    public void reconnect(){
+        if(!dbController.isConnected()){
+            if (!dbController.connect()){
+                System.out.println("********FEHLGESCHLAGEN********");
+            }else{
+                System.out.println("********VERBUNDEN********");
+            }
+        }else {
+            System.out.println("********NOCH VERBUNDEN********");
+        }
+    }
 
 }

@@ -56,6 +56,20 @@ public class Erstellen {
         frame.setVisible(true);
         nutzPanel.setVisible(true);
         extraPanel.setVisible(true);
+        idTypFeld.setText("");
+        nameFeld.setText("");
+        nachnameFeld.setText("");
+        textField1.setText("");
+        textField2.setText("");
+        textField3.setText("");
+        textField4.setText("");
+        textField5.setText("");
+        textField6.setText("");
+        textField7.setText("");
+        textField8.setText("");
+        textField9.setText("");
+        jaButton.setBackground(Color.WHITE);
+        neinButton.setBackground(Color.WHITE);
         if (tabelle == 0){
             pSpezPanel.setVisible(false);
             booPanel.setVisible(true);
@@ -154,7 +168,7 @@ public class Erstellen {
         if (tabelle == 0){
             centralControll.datensatzErstellen(tabelle,idTypFeld.getText(),nameFeld.getText(),nachnameFeld.getText(),textField1.getText(),textField4.getText(),boo,null,null,null,null,null,null,null);
         }else if(tabelle == 1){
-            centralControll.datensatzErstellen(tabelle,idTypFeld.getText(),nameFeld.getText(),nachnameFeld.getText(),boo,textField1.getText(),textField4.getText(),textField2.getText(),null,null,null,null,null,null);
+            centralControll.datensatzErstellen(tabelle,idTypFeld.getText(),nameFeld.getText(),nachnameFeld.getText(),boo,textField2.getText(),textField1.getText(),textField4.getText(),null,null,null,null,null,null);
         }else if(tabelle == 2){
             centralControll.datensatzErstellen(tabelle,idTypFeld.getText(),nameFeld.getText(),nachnameFeld.getText(),textField1.getText(),textField4.getText(),textField2.getText(),textField3.getText(), boo, textField5.getText(), textField7.getText(),textField6.getText(),textField8.getText(),null);
         }else if(tabelle == 3){
