@@ -22,7 +22,7 @@ public class Aktionsfenster extends GraphicalObject implements ButtonUser {
         suchen = new Button("Suchen",851,0,40,255,255,255,0,this);
         veraendern = new Button("Verändern",851,60,40,255,255,255,1,this);
         erstellen = new Button("Erstellen",851,120,40,255,255,255,2,this);
-        einsAusgeben = new Button("Tabelle ausgeben",851,180,40,255,255,255,3,this);
+        einsAusgeben = new Button("Tbl. ausgeben",851,180,40,255,255,255,3,this);
         //loeschen = new Button("Löschen",851,240,40,255,255,255,4,this);
         einstellungen = new Button("Einstellungen",851,560,40,255,255,255,5,this);
     }
